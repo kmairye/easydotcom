@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% load static %}
+
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'store/favicon/apple-touch-icon.png' %} ">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'store/favicon/favicon-32x32.png' %}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'store/favicon/favicon-16x16.png' }">
+	<link rel="manifest" href="{% static 'store/favicon/site.webmanifest' %}">
+
+
+	<link rel="stylesheet" href="{% static 'store/css/style.css' %}">
+	<title>EasyDotCom</title>
+</head>
+<body>
+	<header>
+		<nav>
+			<ul id="mainMenu" class="grid">
+				<li class="menu-item">
+					<a href="{% url 'index' %}"> 
+						<img src="{% static 'store/favicon/android-chrome-192x192.png' %}" alt="Home Icon">
+					</a>
+				</li>
+				<li class="menu-item">
+					<a href="{% url 'product-list' %}"> 
+						<span class="text">Alle varer</span>
+					</a>
+				</li>
+				{% if user.is_authenticated %}
+				
+				{% if user_is_employee %}
+					<li class="menu-item">
+						<a href="{% url 'product-create' %}"> 
+							<span class="text">Opret produkt</span>
+						</a>
+					</li>
+				{% endif %}
+
+				<li class="menu-item">
+					<a href="{% url 'profile' %}"> 
+						<span class="text">Profil</span>
+					</a>
+				</li>
+				<li class="menu-item">
+					<a href="{% url 'cart' %}"> 
+						<span class="text">Kurv</span>
+					</a>
+				</li>
+				<li class="menu-item">
+					<a href="{% url 'logout' %}"> 
+						<span class="text">Logout</span>
+					</a>
+				</li>
+				  
+				{% else %}
+				<li class="menu-item">
+					<a href="{% url 'login' %}"> 
+						<span class="text">Login</span>
+					</a>
+				</li>
+				<li class="menu-item">
+					<a href="{% url 'signup' %}"> 
+						<span class="text">Signup</span>
+					</a>
+				</li>
+				{% endif %}
+			</ul>
+		</nav>
+	</header>
+	<main>
+		{% block banner %}
+		  
+		{% endblock banner %}
+		
+		{% block content %}
+		{% endblock content %}
+	</main>
+</body>
+</html>

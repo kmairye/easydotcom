@@ -1,0 +1,74 @@
+{% extends 'base/_.html' %}
+
+{% block banner %}
+	<div id="pageBanner" class="grid gap-s">
+		<div class="box s-span-12">
+			{% load static %}
+			<img src="{% static 'store/media/imgs/luisa-brimble-somekind-aFzg83dvnAI-unsplash.jpg' %}" alt="Dinner with friends">
+			<div class="display">
+				<span class="text bold white x-large">EasyDotCom</span>
+				<span class="text thin white regular">Nemt og bekvemt &#10003;</span>
+			</div>
+		</div>
+	</div>
+{% endblock banner %}
+  
+
+{% block content %}
+	<section id="latestProducts" class="grid gap-s">
+		<div class="s-span-12 section-title">
+			<span class="text bold medium">Nyeste varer</span>
+			<a href="{% url 'product-list' %}"> Se alle &#10141; </a>
+		</div>
+
+		{% if products %}
+		{% for product in products %}
+		<article class="product s-span-3 grid gap-s">
+			<div class="s-span-12 head grid">
+				<div class="s-span-12">
+					<img src="{{product.image}}" alt="{{product.title}}">
+				</div>
+			</div>
+			<div class="s-span-12 body grid">
+				<div class="s-span-12">
+					<span class="text bold medium">
+						{{ product.title }}
+					</span>
+				</div>
+				<div class="s-span-12">
+					<span class="text light">
+						{{ product.subtitle }}
+					</span>
+				</div>
+				
+				<div class="s-span-6">
+					<span class="text bold">
+						{{ product.get_price }},-
+					</span>	
+				</div>
+				<div class="s-span-6">
+					<span class="text thin">
+						{{ product.unit_price }}/{{ product.unit_type }}
+					</span>	
+				</div>
+				<div class="s-span-12">
+					<span class="text thin">
+						Stock: {{ product.get_stock_quantity }}
+					</span> 
+				</div>
+			</div>
+			<div class="s-span-12 foot grid gap-s">
+				
+				<button class="s-span-6 btn btn-success reverse">
+					<a href="{{ product.get_absolute_url }}">Se mere</a>
+				</button>
+				<button class="s-span-6 btn btn-success">
+					<a href="{{ product.get_add_to_cart_url }}">Læg i kurv</a>
+				</button>
+
+			</div>
+		</article>
+		{% endfor %}
+		{% endif %}
+	</section>
+{% endblock content %}

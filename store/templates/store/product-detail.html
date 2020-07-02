@@ -1,0 +1,50 @@
+{% extends 'base/_.html' %}
+
+{% block banner %}
+	<div id="pageBanner" class="small-banner grid gap-s">
+		<div class="box s-span-12">
+			{% load static %}
+			<img src="{% static 'store/media/imgs/luisa-brimble-somekind-aFzg83dvnAI-unsplash.jpg' %}" alt="Dinner with friends">
+			<div class="display">
+				<span class="text bold white large">EasyDotCom</span>
+			</div>
+		</div>
+	</div>
+{% endblock banner %}
+
+{% block content %}
+	
+  <article class="product detail grid">
+
+	  <div class="head s-span-12">
+		  <a href="{% url 'product-list' %}">Alle varer</a>
+	  </div>
+	  <div class="body s-span-12 grid">
+		  <div class="s-span-4">
+			  <img src="{{ product.image }}" alt="{{ product.title }}">
+		  </div>
+		  <div class="s-span-8 grid">
+			
+			<div class="title s-span-12">
+				<span class="text bold large">{{ product.title }}</span>
+				<span class="text thin regular">{{ product.subtitle }}</span>
+			</div>
+				  
+			<div class="description s-span-12">
+				<span class="text">{{ product.description }}</span>
+			</div>
+
+			<div class="add-to-cart s-span-12">
+				<button class="btn btn-success">
+					<a href="">Læg i kurv</a>
+				</button>
+			</div>
+
+		  </div>
+	  </div>
+  </article>
+  {% if user_is_employee %}
+  <a href="{{ product.get_delete_url }}">Delete product</a>
+  {% endif %}
+
+  {% endblock content %}

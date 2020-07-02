@@ -1,0 +1,153 @@
+:root {
+	--primary: #D4793A;
+	--success: #85977D;
+	--danger: brown;
+	--dgrey: #444;
+	--mgrey: #777;
+	--lgrey: #bbb;
+}
+html {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+}
+body {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+input {
+	background: transparent;
+	height: 2rem;
+	line-height: 2rem;
+	vertical-align: middle;
+	width: 100%;
+	text-indent: 10px;
+	border: none;
+	background-color: #eee;
+}
+
+.form-wrapper {
+	display: grid; 
+	justify-content: center;
+	align-items: center;
+	
+	margin: 1rem;
+}
+.btn-wrapper {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+button {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	padding: 7.5px 12px;
+	
+	background-color: var(--success);
+	border: none;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}
+button.absolute-url {
+	background: transparent;
+	border: 1px solid var(--success);
+	color: var(--success);
+}
+/*#################### PROFILE PAGE ####################*/
+div#profilePage {
+	padding: 2rem;
+}
+.delivery-item {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	padding: 1rem;
+}
+.delivery-item .full-address, .delivery-item .btn-wrapper {
+	grid-column: 1/6;
+}
+.delivery-item:nth-child(odd) {
+	display: grid;
+	padding: 1rem;
+	background-color: #eee;
+}
+.delivery-item:nth-child(even) {
+	display: grid;
+	padding: 1rem;
+	background-color: #ddd;
+}
+
+/*#################### TEXT ####################*/
+.text {
+	font-size: 1rem;
+}
+.text.bold {
+	font-weight: bold;
+}
+.text.small {
+	font-size: .9rem;
+}
+.text.uppercase {
+	text-transform: uppercase;
+}
+
+
+
+/*#################### GRID ####################*/
+.grid {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+}
+.grid.gap-s {
+	grid-gap: 1rem;
+}
+.grid.gap-s {
+	grid-gap: 1rem;
+}
+/* Column spans */
+.grid > .s-span-1 {
+	grid-column: span 1;
+} 
+.grid > .s-span-2 {
+	grid-column: span 2;
+} 
+.grid > .s-span-3 {
+	grid-column: span 3;
+} 
+.grid > .s-span-4 {
+	grid-column: span 4;
+} 
+.grid > .s-span-5 {
+	grid-column: span 5;
+} 
+.grid > .s-span-6 {
+	grid-column: span 6;
+} 
+.grid > .s-span-7 {
+	grid-column: span 7;
+} 
+.grid > .s-span-8 {
+	grid-column: span 8;
+} 
+.grid > .s-span-8 {
+	grid-column: span 8;
+} 
+.grid > .s-span-9 {
+	grid-column: span 9;
+} 
+.grid > .s-span-10 {
+	grid-column: span 10;
+} 
+.grid > .s-span-11 {
+	grid-column: span 11;
+} 
+.grid > .s-span-12 {
+	grid-column: span 12;
+} 

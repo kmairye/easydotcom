@@ -1,0 +1,45 @@
+{% extends 'base/_.html' %}
+
+	{% block banner %}
+	{% endblock banner %}
+	{% block content %}
+	<div id="signupPage" class="grid">
+		<div class="form-wrapper s-span-6">
+			<form action="{% url 'signup' %}" method="POST" id="frmSignup" class="grid gap-s">
+				{% csrf_token %}
+				
+				<div class="s-span-6">
+					<input type="text" name="txtFirstname" placeholder="Firstname">
+				</div>
+				<div class="s-span-6">
+					<input type="text" name="txtLastname" placeholder="Lastname">
+				</div>
+				<div class="s-span-12">
+					<input type="text" name="txtEmail" placeholder="Email">
+				</div>
+				<div class="s-span-12">
+					<input type="text" name="txtUsername" placeholder="Username">
+				</div>
+				<div class="s-span-6">
+					<input type="password" name="txtPassword" placeholder="Password">
+				</div>
+				<div class="s-span-6">
+					<input type="password" name="txtConfirmPassword" placeholder="Confirm Password">
+				</div>
+				<div class="s-span-12 btn-wrapper">
+					<button class="btn btn-success">Signup</button>
+				</div>
+			</form>
+		</div>
+		<div id="pageBanner" class="split-screen-banner s-span-6 grid gap-s">
+			<div class="box s-span-12">
+				{% load static %}
+				<img src="{% static 'store/media/imgs/luisa-brimble-somekind-aFzg83dvnAI-unsplash.jpg' %}" alt="Dinner with friends">
+				<div class="display">
+					<span class="text bold white x-large">EasyDotCom</span>
+					<span class="text thin white regular">Nemt og bekvemt &#10003;</span>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}

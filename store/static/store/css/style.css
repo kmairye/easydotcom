@@ -1,0 +1,403 @@
+:root {
+	--primary: #D4793A;
+	--success: #85977D;
+	--danger: brown;
+	--dgrey: #444;
+	--mgrey: #777;
+	--lgrey: #bbb;
+}
+html {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+}
+body {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	background-color: #eee;
+}
+img {
+	width: 100%;
+	height: auto;
+}
+
+/* ELEMENTS/RESETS */
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0; 
+}
+
+
+form input {
+	height: 2rem;
+	width: 100%;
+	
+	line-height: 2rem;
+	text-indent: 10px;
+	vertical-align: middle;
+
+	border-radius: 8px;
+	border: 1px solid var(--lgrey);
+	outline: none;
+	
+	box-sizing: border-box;
+}
+
+button.btn {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	padding: .5rem;
+	cursor: pointer;
+	border-radius: 8px;
+	border: none;
+}
+button.btn-secondary {
+	background: transparent;
+	color: var(--mgrey);
+	border: 1px solid var(--mgrey);
+}
+button.btn-success {
+	background-color: var(--success);
+	color: #fff;
+}
+button.btn-success.reverse {
+	background: none;
+	border: 1px solid var(--success);
+	color: var(--success);
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* GENEREL */
+body {
+	display: grid;
+	justify-content: center;
+}
+header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	box-shadow: 0px 1px 10px rgba(0,0,0,.1);
+	background-color: #fff;
+	z-index: 99;
+}
+
+main {
+	margin-top: 3rem;
+	padding: 1rem;
+	display:grid;
+	grid-gap:1rem;
+	max-width: 800px;
+}
+img {
+	width: 100%;
+	height: auto;
+}
+
+/* MAIN MENU */
+header nav .menu-item {
+	height: 3rem;
+	border-bottom: 2px solid #fff;
+	box-sizing: border-box;
+}
+header nav .menu-item:hover {
+	border-bottom: 2px solid var(--primary);
+}
+header nav .menu-item,
+header nav .menu-item a  {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+header nav .menu-item a  {
+	padding-bottom: -2px;
+}
+header nav .menu-item a img {
+	height: 1.5rem;
+	width: 1.5rem;
+}
+
+/* CUSTOM */ 
+/* banner */
+div#pageBanner  {
+	height:35vh;
+	box-shadow: 0px 1px 10px rgba(0,0,0,.2);
+}
+div#pageBanner.small-banner  {
+	height:10vh;
+	box-shadow: 0px 1px 10px rgba(0,0,0,.2);
+}
+div#pageBanner.split-screen-banner  {
+	height: 80vh;
+	background-color: #fff;
+}
+div#pageBanner > .box {
+	position: relative;
+	height: 100%;
+	overflow:hidden;
+}
+div#pageBanner > .box > img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+div#pageBanner > .box > .display {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+
+	height: 100%;
+	width: 100%;
+	
+	display:flex;
+	flex-direction:column;
+	align-items: center;
+	justify-content: center;
+	
+	background-color: rgba(100,100,100,.5);
+}
+
+/* Page sections */
+section > .section-title > a:last-child {
+	display: grid;
+	justify-content: flex-end;
+	
+}
+
+/* Latest products */
+article {
+	box-shadow: 0px 1px 10px rgba(0,0,0,.1);
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+/* Product details */
+article.product.detail > .head {
+	height: 3rem;
+}
+article.product.detail > .body .title {
+	display: grid;
+	align-items:flex-start;
+	align-content:flex-start;
+}
+
+article.product.detail > .body .add-to-cart {
+	display: grid;
+	align-items:flex-end;
+	align-content:flex-end;
+}
+/* Product create */
+#frmProductCreate {
+	max-width: 600px;
+	margin: 0px auto;
+}
+#frmProductCreate label {
+	display: grid;
+}
+#frmProductCreate .btn-wrapper {
+	display: grid;
+	justify-content: center;
+}
+
+/* Cart */
+#cartPage {
+	background-color: #fff;
+	grid-gap: 1rem;
+	padding: 1rem;
+}
+.custom-table {
+	display:grid;
+}
+.custom-table-body {
+	align-items:center;
+	height: 3rem;
+}
+.custom-table-body:nth-child(odd) {
+	background-color: #eee;
+}
+.custom-table-body:nth-child(even) {
+	background-color: #ddd;
+}
+.custom-table-body form{
+	display: grid;
+	align-items: center;
+}
+.custom-table-foot {
+	display: grid;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	justify-items: center;
+	padding: 1rem;
+}
+.custom-table-foot .btn-wrapper {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+}
+.custom-table-foot .btn-wrapper a{
+	background-color: var(--success);
+	color: #fff;
+	padding: 7.5px 10px;
+}
+
+
+
+/* Profile */
+#userProfile {
+	display: grid;
+	grid-gap: 1rem;
+}
+#userProfile > section { 
+	display: grid;
+	grid-gap: 1rem;
+
+	background-color: #fff;
+	padding: 1rem;
+}
+#userProfile > section.address { 
+	align-items: flex-start;
+	align-content: flex-start;
+}
+#addressList > .address-item {
+	padding: 1rem;
+}
+#addressList > .address-item:nth-child(even) {
+	background-color: #eee;
+}
+#addressList > .address-item:nth-child(odd) {
+	background-color: #ddd;
+} 
+#userProfile .btn-wrapper {
+	display: grid;
+	justify-content: flex-end;
+}
+
+
+/* Signup page */
+#signupPage {
+	background-color: #fff;
+}
+#signupPage .form-wrapper {
+	display:grid;
+	justify-content: center;
+	align-items: center;
+}
+/* Login page */
+#loginPage .form-wrapper {
+	display:grid;
+	justify-content: center;
+	align-items: center;
+}
+
+/*##################################################*/
+/*##################################################*/
+/*##################################################*/
+
+
+/* font color */
+.text.white {
+	color: #fff;
+}
+.text.danger {
+	color: var(--danger);
+}
+/* font size */
+.text.x-large {
+	font-size: 4rem;
+}
+.text.large {
+	font-size: 2rem;
+}
+.text.medium {
+	font-size: 1.4rem;
+}
+.text.regular {
+	font-size: 1rem;
+}
+.text.small {
+	font-size: .8rem;
+}
+/* text style */
+.text.italic {
+	font-style: italic;
+}
+/* text transformations */
+.text.uppercase {
+	text-transform: uppercase;
+}
+/* text weight */
+.text.bold {
+	font-weight: bold;
+}
+.text.thin {
+	font-weight: 100;
+}
+/* text align */
+.text.align-center {
+	text-align: center;
+}
+.text.align-left {
+	text-align: left;
+}
+
+
+/* GRID */
+.grid {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+}
+/* Gap */
+.grid.gap-s {
+	grid-gap: 1rem;
+}
+/* Column spans */
+.grid > .s-span-1 {
+	grid-column: span 1;
+} 
+.grid > .s-span-2 {
+	grid-column: span 2;
+} 
+.grid > .s-span-3 {
+	grid-column: span 3;
+} 
+.grid > .s-span-4 {
+	grid-column: span 4;
+} 
+.grid > .s-span-5 {
+	grid-column: span 5;
+} 
+.grid > .s-span-6 {
+	grid-column: span 6;
+} 
+.grid > .s-span-7 {
+	grid-column: span 7;
+} 
+.grid > .s-span-8 {
+	grid-column: span 8;
+} 
+.grid > .s-span-8 {
+	grid-column: span 8;
+} 
+.grid > .s-span-9 {
+	grid-column: span 9;
+} 
+.grid > .s-span-10 {
+	grid-column: span 10;
+} 
+.grid > .s-span-11 {
+	grid-column: span 11;
+} 
+.grid > .s-span-12 {
+	grid-column: span 12;
+} 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Profile / Deliveries</title>
+</head>
+<body>
+	<div id="profilePage" class="grid gap-s">
+		<ul id="deliveryList" class="s-span-6">
+			
+		</ul>
+		<div class="s-span-6">
+			<form id="frmUpdateDestroyDelivery" data-delivery-id="" method="POST" action="">
+				<input id="username" type="hidden" name="username" value="Thearced56">
+				<input id="email" type="hidden" name="email" value="ChristofferSLauridsen@jourrapide.com">
+				<input id="password" type="hidden" name="password" value="iwgawU22day">
+
+				<input id="id" type="text" value="" placeholder="ID">
+				<input id="driver" type="text" value="" placeholder="DRIVER">
+				<input id="address" type="text" value="" placeholder="ADDRESS">
+				<input id="order" type="text" value="" placeholder="ORDER">
+				<input id="status" type="text" value="" placeholder="STATUS">
+				<button class="save-changes">Save changes</button>
+			</form>
+		</div>
+	</div>
+
+	<template id="deliveryTemplate">
+		<li class="delivery-item">
+			<span class="text bold full-address"></span>
+
+			<div class="property">
+				<span class="text">Id</span>
+				<div class="id"></div>
+			</div>
+			<div class="property">
+				<span class="text">Driver</span>
+				<div class="driver"></div>
+			</div>
+			<div class="property">
+				<span class="text">Address</span>
+				<div class="address"></div>
+			</div>
+			<div class="property">
+				<span class="text">Order</span>
+				<div class="order"></div>
+			</div>
+			<div class="property">
+				<span class="text">Status</span>
+				<div class="status"></div>
+			</div>
+
+			<div class="btn-wrapper">
+				<button data-delivery-id="" class="absolute-url s-span-12">View details</button>
+			</div>
+		</li>
+	</template>
+	<script src="profile.js"></script>
+</body>
+</html>

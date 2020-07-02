@@ -1,0 +1,144 @@
+{% extends 'base/_.html' %}
+{% block banner %}
+	<div id="pageBanner" class="small-banner grid gap-s">
+		<div class="box s-span-12">
+			{% load static %}
+			<img src="{% static 'store/media/imgs/luisa-brimble-somekind-aFzg83dvnAI-unsplash.jpg' %}" alt="Dinner with friends">
+			<div class="display">
+				<span class="text bold white large">EasyDotCom</span>
+			</div>
+		</div>
+	</div>
+{% endblock banner %}
+{% block content %}
+<div id="userProfile">
+
+	<section class="profile">
+		<div class="section-title">
+			<span class="text small">DETALJER</span>
+		</div>
+		<div class="section-content">
+			<div class="username">
+				<span class="text">Username:</span>
+				<span class="text bold"> 
+					{% if user.username %}
+						{{ user.username }}
+					{% else %}
+						Du har ikke registreret et brugernavn
+					{% endif %}
+				</span>
+			</div>
+			<div class="email">
+				<span class="text">Email:</span>
+				{% if user.email %}
+					<span class="text bold"> 
+						{{ user.email }}
+					</span>
+					{% else %}
+					<span class="text italic"> 
+						Du har ikke registreret en email
+					</span>
+					{% endif %}
+			</div>
+
+		</div>
+	</section>
+
+	<section class="profile address grid">
+		<div class="s-span-6 grid gap-s">
+			<div class="section-title s-span-12">
+				<span class="text small">REGISTREREDE ADDRESSER</span>
+			</div>
+			
+			<div class="section-content s-span-12">
+				<ul id="addressList">
+					{% if user_address_book %}
+						{% for user_address in user_address_book %}
+						<li class="address-item">
+							
+							<div class="user-address">
+								<div>
+									<span class="text">
+										{{ user_address.address.street }} {{ user_address.address.number }},
+										{% if user_address.address.floor %} 
+										{{ user_address.address.floor }}. 
+										{% endif %}
+										{% if user_address.address.direction %} 
+										{{ user_address.address.direction }} 
+										{% endif %}
+									</span>
+								</div>
+								<div>
+									<span class="text">{{ user_address.address.postal }}</span>
+									<span class="text">{{ user_address.address.city }}</span>
+								</div>
+								<a href="{% url 'delete-address' pk=user_address.pk %}" class="text danger">Delete address</a>
+							</div>
+						</li>
+						{% endfor %}
+					{% else %}
+						<span class="text italic">Du har ingen registrerede addresser.</span>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+		<div class="s-span-6 grid gap-s">
+			<div class="section-title s-span-12">
+				<span class="text small">TILFØJ ADDRESSE</span>
+			</div>
+			<div class="section-content s-span-12">
+				<div class="form-wrapper">
+					<form id="frmNewAddress" method="POST" action="{% url 'add-address' %}" class="grid gap-s">
+						{% csrf_token %}
+						<div class="s-span-6">
+							<input type="text" name="txtPostal" placeholder="Postnr.">
+						</div>
+						<div class="s-span-6">
+							<input type="text" name="txtCity" placeholder="By">
+						</div>
+						<div class="s-span-12">
+							<input type="text" name="txtStreet" placeholder="Gade/vej">
+						</div>
+						<div class="s-span-4">
+							<input type="text" name="txtNumber" placeholder="Nummer og evt. bogstav">
+						</div>
+						<div class="s-span-4">
+							<input type="text" name="txtFloor" placeholder="Etage">
+						</div>
+						<div class="s-span-4">
+							<input type="text" name="txtDirection" placeholder="Lejlighed">
+						</div>
+						<div class="s-span-12 btn-wrapper">
+							<button class="btn btn-success">Tilføj</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>	
+
+	<section class="profile">
+	<div class="section-title">
+		<span class="text small">ORDREHISTORIK</span>
+	</div>
+	<div class="section-content">
+		{% if user_orders %}
+			{% for user_order in user_orders  %}
+				<span class="text thin">Reference number: {{ user_order.reference_number }}</span>
+				<span class="text thin">Status: {% if user_order.status == "D" %} Delivered {% else %} Placed {% endif %}</span>
+				<ul class="order-items">
+					{% for order_item in user_order.get_order_items_queryset %}
+					<li class="list-item">
+						<span class="text"> {{ order_item.product.title }} </span>
+					</li>
+					{% endfor %}
+				</ul>
+			{% endfor %}
+		{% else %}
+		<span class="text italic">Du har ingen ordrer i historikken.</span>
+		{% endif %}
+	</div>
+	</section>
+
+</div>
+{% endblock content %}
